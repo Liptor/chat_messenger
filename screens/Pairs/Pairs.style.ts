@@ -7,17 +7,13 @@ export const SPairs = StyleSheet.create({
     backgroundColor: '#fff8dc',
   },
   block: {
-    height: deviceHeight / 3,
-    marginTop: deviceWidth / 2,
+    marginTop: deviceWidth / 3,
     marginRight: 25,
     marginLeft: 25,
-    backgroundColor: '#e9967a',
     justifyContent: 'center',
-    alignItems: 'center',
-    shadowOffset: { height: 3, width: 3 },
-    shadowColor: '#000000',
-    shadowOpacity: 0.5,
-    shadowRadius: 5,
+  },
+  arrowStyle: {
+    alignSelf: 'center'
   },
   nextButton: {
     width: deviceWidth / 2,

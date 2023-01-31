@@ -6,24 +6,18 @@
  */
 
 import React from 'react';
-import {SafeAreaView, StyleSheet, View} from 'react-native';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {SafeAreaView} from 'react-native';
+import {Provider as PaperProvider} from 'react-native-paper';
 
 import Navigation from './navigation';
 
 function App(): JSX.Element {
   return (
-    <SafeAreaProvider style={styles.main}>
+    <PaperProvider>
       <SafeAreaView />
       <Navigation />
-    </SafeAreaProvider>
+    </PaperProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  main: {
-    backgroundColor: 'white',
-  },
-});
 
 export default App;

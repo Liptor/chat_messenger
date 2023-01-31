@@ -5,6 +5,7 @@ export const SCourse = StyleSheet.create({
         flex: 1
     },
     header: {
-        
+        width: 50,
+        height: 50
     }
 })

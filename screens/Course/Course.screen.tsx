@@ -1,8 +1,10 @@
 import React, {FC} from 'react';
-import {Text, View} from 'react-native';
+import { View} from 'react-native';
 import {NavigationProp} from '@react-navigation/native';
 import {RootStackParamList} from '../../types';
-import { SCourse } from './Course.style';
+import {SCourse} from './Course.style';
+import { Header } from '../../navigation/Header/Header';
+import { AppStyle } from '../../styles/App.screen';
 
 interface ICourseScreenProps {
   navigation: NavigationProp<RootStackParamList, 'Course'>;
@@ -10,8 +12,10 @@ interface ICourseScreenProps {
 
 export const CourseScreen: FC<ICourseScreenProps> = ({navigation}) => {
   return (
-    <View style={SCourse.main}>
-      <Text>Hello</Text>
-    </View>
+    <AppStyle>
+      <View style={SCourse.header}>
+        <Header navigation={navigation} />
+      </View>
+    </AppStyle>
   );
 };

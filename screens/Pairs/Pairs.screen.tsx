@@ -16,11 +16,9 @@ interface IPairsScreenProps {
 export const PairsScreen: FC<IPairsScreenProps> = ({navigation}) => {
   const {value, setValue, items, setItems, onNext} = LPairs({navigation});
 
-  //
-
   return (
     <>
-      <Card mode="outlined" theme style={SPairs.block}>
+      <Card mode="outlined" style={SPairs.block}>
         <Card.Title title="Choose Pairs" />
         <Card.Content>
           <DropDownComponent

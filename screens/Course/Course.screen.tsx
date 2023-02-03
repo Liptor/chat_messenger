@@ -4,7 +4,6 @@ import {NavigationProp} from '@react-navigation/native';
 import {RootStackParamList} from '../../types';
 import {SCourse} from './Course.style';
 import {Header} from '../../navigation/Header/Header';
-import {AppStyle} from '../../styles/App.screen';
 
 interface ICourseScreenProps {
   navigation: NavigationProp<RootStackParamList, 'Course'>;

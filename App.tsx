@@ -1,22 +1,41 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import React from 'react';
-import {SafeAreaView} from 'react-native';
-import {Provider as PaperProvider} from 'react-native-paper';
-
+import {
+  Channel,
+  Chat,
+  DeepPartial,
+  MessageList,
+  OverlayProvider,
+  Theme,
+} from 'stream-chat-react-native';
+import React, {useEffect, useState} from 'react';
+import {SafeAreaView, useColorScheme} from 'react-native';
 import Navigation from './navigation';
+import {StreamChat} from 'stream-chat';
+
+const client = StreamChat.getInstance('etk2bmb98add');
 
 function App(): JSX.Element {
+  const colorSheme = useColorScheme();
+
+  const getTheme = (): DeepPartial<Theme> => ({
+    colors: colorSheme === 'dark' ? {black: '#FFFFF'} : {black: '#00000'},
+  });
+
+  const [theme, setTheme] = useState(getTheme());
+
+  useEffect(() => {
+    setTheme(getTheme());
+  }, [colorSheme]);
+
   return (
-    <PaperProvider>
+    <OverlayProvider value={{style: theme}}>
       <SafeAreaView />
-      <Navigation />
-    </PaperProvider>
+      <Chat client={client}>
+        <Channel>
+          <MessageList />
+        </Channel>
+      </Chat>
+      {/* <Navigation /> */}
+    </OverlayProvider>
   );
 }
 

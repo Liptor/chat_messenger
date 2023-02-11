@@ -1,15 +1,5 @@
-import {
-  ChannelList,
-  Chat,
-  DeepPartial,
-  OverlayProvider,
-  Theme,
-} from 'stream-chat-react-native';
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, useColorScheme } from 'react-native';
-import { StreamChat } from 'stream-chat';
-
-const client = StreamChat.getInstance('etk2bmb98add');
+import { SafeAreaView, useColorScheme, View} from 'react-native';
 
 function App(): JSX.Element {
   const colorSheme = useColorScheme();
@@ -25,13 +15,11 @@ function App(): JSX.Element {
   }, [colorSheme]);
 
   return (
-    <OverlayProvider value={{ style: theme }}>
+    <View value={{ style: theme }}>
       <SafeAreaView />
-      <Chat client={client}>
-        <ChannelList />
-      </Chat>
+      
       {/* <Navigation /> */}
-    </OverlayProvider>
+    </View>
   );
 }
 

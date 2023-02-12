@@ -2,12 +2,10 @@ import {
   NavigationContainer,
   NavigationContainerRef,
 } from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import {CourseScreen} from '../screens/Course/Course.screen';
-import {CurrencyScreen} from '../screens/Currency/Currency.screen';
-import {PairsScreen} from '../screens/Pairs/Pairs.screen';
-import {RootStackParamList} from '../types';
+import { RootStackParamList } from '../types';
+import {Login, Chat, Messaging} from '../screens'
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -23,20 +21,23 @@ export default function Navigation() {
 
 const RootNavigator = () => {
   return (
-    <Stack.Navigator
-      initialRouteName="Pairs"
-      screenOptions={{headerShown: false}}>
-      <Stack.Screen name="Pairs" component={PairsScreen} />
-      <Stack.Screen
-        name="Currency"
-        component={CurrencyScreen}
-        options={{gestureEnabled: false}}
-      />
-      <Stack.Screen
-        name="Course"
-        component={CourseScreen}
-        options={{gestureEnabled: false}}
-      />
-    </Stack.Navigator>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Chat"
+          component={Chat}
+          options={{
+            title: 'Chats',
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen name="Messaging" component={Messaging} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
